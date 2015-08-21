@@ -45,8 +45,8 @@ function baseChart() {
 	}
 }
 
-function calculateX(angle){
-	var x_coordinate = 0.50;
+function calculateX(angle, length){
+	var x_coordinate = length * Math.cos(angle);
 	return x_coordinate;
 }
 
