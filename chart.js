@@ -11,21 +11,19 @@ function baseChart() {
 
 		context.beginPath();
 		context.moveTo(xCoordinate, yCoordinate);
-		xCoordinate = calculateX(xCoordinate, angle, length);
-		yCoordinate = calculateY(yCoordinate, angle, length);
-		context.lineTo(xCoordinate, yCoordinate);
+		coordinates = calculatesEndingCoordinates(xCoordinate, yCoordinate, angle, length);
+		context.lineTo(coordinates.x, coordinates.y);
 		context.stroke();
 
 
 	}
 }
 
-function calculateX(xInitial, angle, length){
-	var x_coordinate = (length * Math.cos(angle)) + xInitial;
-	return x_coordinate;
-}
 
-function calculateY(yInitial, angle, length){
-	var y_coordinate = (length * Math.sin(angle)) + yInitial;
-	return y_coordinate;
+
+function calculatesEndingCoordinates(xInitial, yInitial, angle, length){
+	var coordinates = {};
+	coordinates["x"] = (length * Math.cos(angle)) + xInitial;
+	coordinates["y"] = (length * Math.sin(angle)) + yInitial;
+	return coordinates;
 }
