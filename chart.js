@@ -45,4 +45,8 @@ function baseChart() {
 	}
 }
 
+function calculateX(angle){
+	var x_coordinate = 0.50;
+	return x_coordinate;
+}
 
