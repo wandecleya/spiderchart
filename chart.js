@@ -4,11 +4,12 @@ function baseChart() {
 
 	if(canvas.getContext){
 		var context = canvas.getContext("2d");
-		var numberOfSides = 6;
-		var radius = 200;
-		var initialCoordinates = [100, 100];
+		var numberOfSides = 12;
+		var width = 800;
+		var xInitial = startingPoint()
+		var initialCoordinates = [, 0];
 
-		var vertices = verticesCoordinates(initialCoordinates, numberOfSides, radius);
+		var vertices = verticesCoordinates(numberOfSides, width);
 
 		context.beginPath();
 		context.moveTo(vertices[0][0], vertices[0][1]);
@@ -35,25 +36,38 @@ function nextCoordinates(initial, angle, length){
 	return coordinates;
 }
 
-function polygonParameters(numberOfSides, radius){
+function polygonParameters(numberOfSides, diameter){
 	var parameters = {};
 	parameters["angle"] = (2 * Math.PI )/ numberOfSides;
-	parameters["length"] = (2 * radius) * Math.sin(Math.PI/numberOfSides);
+	parameters["side"] = diameter * Math.sin(Math.PI/numberOfSides);
+	
 	return parameters;
 }
 
-function verticesCoordinates(initial, numberOfSides, radius){
+function verticesCoordinates(numberOfSides, width){
 	var coordinates = [];
-	var parameters = polygonParameters(numberOfSides, radius);
+	var diameter = width /2;
+	var parameters = polygonParameters(numberOfSides, diameter);
+	var initial = startingPoint(width, parameters.side);
 	var angle = 0;
 
 	for(var i=0; i < numberOfSides; i++){
 		coordinates.push(initial);
-		var next = nextCoordinates(initial, angle, parameters.length);
+		var next = nextCoordinates(initial, angle, parameters.side);
 		initial = next;
 		angle += parameters.angle;
 	}
 	
+
+	return coordinates;
+}
+
+function startingPoint(width, side){
+	var xCoordinate = 0;
+	xCoordinate += width/2;
+	xCoordinate -= side/2;
+
+	var coordinates = [xCoordinate, 0];
 
 	return coordinates;
 }
