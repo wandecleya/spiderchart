@@ -1,4 +1,5 @@
 
+
 function baseChart() {
 	var canvas = document.getElementById("myCanvas");
 
@@ -6,8 +7,6 @@ function baseChart() {
 		var context = canvas.getContext("2d");
 		var numberOfSides = 12;
 		var width = 800;
-		var xInitial = startingPoint()
-		var initialCoordinates = [, 0];
 
 		var vertices = verticesCoordinates(numberOfSides, width);
 
@@ -26,6 +25,7 @@ function baseChart() {
 		context.stroke();
 	}
 }
+
 
 
 
