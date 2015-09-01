@@ -43,7 +43,7 @@ describe("Generates list of vertices for Polygon", function(){
 
 	beforeAll(function() {
 		var center = new Point(0,0);
-	    polygon = new Polygon(5, 6, center);
+	    polygon = new Polygon(5, 4, center);
 	});
 
 	it("Generates vertice at a radius distance above the center", function(){
@@ -56,7 +56,20 @@ describe("Generates list of vertices for Polygon", function(){
 		expect(polygon.vertice(0)).toEqual(point);
 	});
 
+	it("Generates first vertice in a list", function(){
+		var point = new Point(5, 0);
+		expect(polygon.generateVertices()[0]).toEqual(point);
+	});
 
+	it("Generates next vertice of a square in a list", function(){
+		var point = new Point(0, 5);
+		expect(polygon.generateVertices()[1]).toEqual(point);
+	});
+
+	it("Access vertices list of a polygon", function(){
+		var vertices = polygon.generateVertices();
+		expect(polygon.vertices).toEqual(vertices);
+	});
 
 });
 

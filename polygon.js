@@ -8,8 +8,9 @@ function Point(x, y, description){
 function Polygon(radius, sides, center){
 	this.radius = radius,
 	this.sides = sides,
-	this.center = center
-
+	this.center = center,
+	this.vertices = []
+	
 }
 
 Polygon.prototype.vertice = function(angle){
@@ -18,6 +19,20 @@ Polygon.prototype.vertice = function(angle){
 
 	return new Point(x, y);
 }
+
+Polygon.prototype.generateVertices = function(){
+	var radiano = 2 * Math.PI;
+	var internalAngle = radiano/this.sides;
+
+	for(var angle = 0; angle<= radiano; angle += internalAngle){
+		var point = this.vertice(angle);
+		this.vertices.push(point);
+	}
+	
+	
+	return this.vertices;
+}
+
 
 
 
