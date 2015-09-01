@@ -1,10 +1,5 @@
 
-function Point(x){
-	this.x= x
+function Point(x, y){
+	this.x= x,
+	this.y= y
 }
-
-function teste(){
-	console.log(new Point(4).x);
-}
-
-teste();

@@ -5,5 +5,10 @@ describe("Creates a Point object", function(){
 		expect(point.x).toBe(4);
 	});
 
+	it("Creates a point with y coordinate", function(){
+		var point = new Point(2, 4);
+		expect(point.y).toBe(4);
+	});
+
 
 });
