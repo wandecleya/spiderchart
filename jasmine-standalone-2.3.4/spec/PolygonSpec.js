@@ -10,12 +10,10 @@ describe("Creates a Point object", function(){
 		expect(point.y).toBe(4);
 	});
 
-
-	it("Creates a point with a text value as description", function(){
+	it("Creates a point with a description value", function(){
 		var point = new Point(2, 4, "Javascript");
 		expect(point.description).toBe("Javascript");
 	});
-
 
 });
 
@@ -31,9 +29,27 @@ describe("Creates a Polygon object", function(){
 		expect(polygon.sides).toBe(6);
 	});
 
-	it("Creates a Polygon object with the center point", function(){
+	it("Creates a Polygon object with a center point", function(){
 		var point = new Point(0, 0);
 		var polygon = new Polygon(5, 6, point);
-		expect(polygon.point.).toBe("0,0");
+		expect(polygon.center).toEqual(point);
 	});
+
 });
+
+describe("Generates list of vertices for Polygon", function(){
+
+	var polygon;
+
+	beforeAll(function() {
+		var center = new Point(0,0);
+	    polygon = new Polygon(5, 6, center);
+	});
+
+	it("Generates first point at a radius distance above the center", function(){
+		var point = new Point(0, 5);
+		expect(polygon.firstVertice()).toEqual(point);
+	});
+
+});
+

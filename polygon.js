@@ -5,10 +5,16 @@ function Point(x, y, description){
 	this.description= description
 }
 
-function Polygon(radius, sides, point){
+function Polygon(radius, sides, center){
 	this.radius = radius,
 	this.sides = sides,
-	this.point = point
+	this.center = center
 }
+
+Polygon.prototype.firstVertice = function(){
+	var y = this.center.y + this.radius;
+	return new Point(this.center.x, y);
+};
+
 
 
