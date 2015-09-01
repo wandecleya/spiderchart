@@ -18,7 +18,12 @@ function baseChart() {
 
 
 		var vertices = polygon.generateVertices();
+		drawPolygon(context, vertices);
 
+	}
+}
+
+var drawPolygon = function(context, vertices){
 
 		context.beginPath();
 		context.moveTo(vertices[0].x, vertices[0].y);
@@ -31,7 +36,6 @@ function baseChart() {
 
 		context.lineTo(vertices[0].x, vertices[0].y);
 		context.stroke();
-	}
 }
 
 function Point(x, y, description){
