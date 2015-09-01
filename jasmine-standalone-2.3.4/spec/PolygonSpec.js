@@ -46,10 +46,17 @@ describe("Generates list of vertices for Polygon", function(){
 	    polygon = new Polygon(5, 6, center);
 	});
 
-	it("Generates first point at a radius distance above the center", function(){
+	it("Generates vertice at a radius distance above the center", function(){
 		var point = new Point(0, 5);
-		expect(polygon.firstVertice()).toEqual(point);
+		expect(polygon.vertice(Math.PI/2)).toEqual(point);
 	});
+
+	it("Generates vertice at a radius distance right from the center", function(){
+		var point = new Point(5, 0);
+		expect(polygon.vertice(0)).toEqual(point);
+	});
+
+
 
 });
 
