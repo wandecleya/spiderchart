@@ -11,4 +11,10 @@ describe("Creates a Point object", function(){
 	});
 
 
+	it("Creates a point with a text value as description", function(){
+		var point = new Point(2, 4, "Javascript");
+		expect(point.description).toBe("Javascript");
+	});
+
+
 });
