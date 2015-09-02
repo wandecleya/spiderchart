@@ -73,3 +73,21 @@ describe("Generates list of vertices for Polygon", function(){
 
 });
 
+describe("Creates a Spiderchart object", function(){
+	var spiderchart;
+
+	beforeAll(function() {
+	    spiderchart = new Spiderchart(5);
+	});
+
+	it("Creates a spiderchart object with the number of steps", function(){
+		expect(spiderchart.steps).toBe(5);
+	});
+
+	it("Generates polygons of the spiderchart", function(){
+
+		expect(spiderchart.polygons.length).toBe(5);
+	});
+
+});
+
